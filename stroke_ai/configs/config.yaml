@@ -1,0 +1,50 @@
+# ============================================================
+# Stroke AI — Master Configuration
+# ============================================================
+
+project:
+  name: "stroke_ai"
+  version: "1.0.0"
+  description: "AI-Based Stroke Rehabilitation Severity Assessment"
+
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  data_skeleton: "data/skeleton_2d"
+  data_features: "data/features"
+  outputs: "outputs"
+  logs: "outputs/logs"
+
+video:
+  supported_formats:
+    - ".mp4"
+    - ".avi"
+    - ".mov"
+    - ".mkv"
+  min_duration_seconds: 1.0
+  max_duration_seconds: 300.0
+  min_fps: 1.0
+  max_fps: 240.0
+  min_width: 64
+  min_height: 64
+  max_width: 7680
+  max_height: 4320
+
+frame_extraction:
+  target_fps: 10
+  max_frames: 500
+  min_frames: 10
+  resize_width: 256
+  resize_height: 256
+  quality: 95
+  output_format: "jpg"
+  batch_size: 32
+  use_uniform_sampling: true
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s | %(name)s | %(levelname)s | %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+  file: "outputs/logs/stroke_ai.log"
+  max_bytes: 10485760
+  backup_count: 5

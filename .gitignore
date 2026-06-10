@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+*.log
+stroke_ai/outputs/logs/
+stroke_ai/data/processed/*/
+!stroke_ai/data/processed/.gitkeep
+.DS_Store
+Thumbs.db
