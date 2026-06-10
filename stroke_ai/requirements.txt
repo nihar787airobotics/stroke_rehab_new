@@ -1,4 +1,7 @@
 opencv-python>=4.8.0
 numpy>=1.24.0
+pandas>=2.0.0
 PyYAML>=6.0
 pytest>=7.4.0
+openpyxl>=3.1.0
+xlrd>=2.0.0

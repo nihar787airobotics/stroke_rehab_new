@@ -15,6 +15,40 @@ paths:
   outputs: "outputs"
   logs: "outputs/logs"
 
+# ---------------------------------------------------------------------------
+# Dataset roots — update these if your data lives elsewhere
+# ---------------------------------------------------------------------------
+datasets:
+  # Kinect 3D skeleton + performance labels (NO IMU)
+  stroke_rehab_root: "C:/datasets/Stroke Rehabilitation Exercise Data Utilizing 3D Depth Sensors and IMU Sensors/Stroke Rehabilitation Exercise Data"
+  kinect_skeleton_dir: "KINECT_Skeleton_Data"
+  participants_info: "Participants_Information.csv"
+  performance_scores: "Participants_with_Performance_Scores.csv"
+
+  # OpenPose JSON keypoint sequences (2D: x, y, confidence)
+  openpose:
+  #   motion_name: folder on disk
+    C_Front_Away: "C:/datasets/C_Front_Away/JSON Files"
+    C_Sag_Left: "C:/datasets/C_Sag_Left/JSON Files"
+    C_Sag_Right: "C:/datasets/C_Sag_Right/JSON Files"
+
+  # Hemiplegia archive (3D joint positions per motion) — add when available
+  archive_root: "C:/datasets/archive/data_new"
+
+# ---------------------------------------------------------------------------
+# Skeleton ingestion (Phase 1 — primary path when videos unavailable)
+# ---------------------------------------------------------------------------
+skeleton_ingestion:
+  output_format: "npz"           # npz | csv
+  max_frames: 500                  # uniform sub-sample cap
+  min_frames: 10
+  min_confidence: 0.1              # OpenPose: zero-out joints below this
+  kinect_coords: "xyz"             # xyz | xyz_quat (store quaternion too)
+  save_manifest: true              # write data/processed/manifest.csv
+
+# ---------------------------------------------------------------------------
+# Video pipeline (optional — use when RGB videos are available)
+# ---------------------------------------------------------------------------
 video:
   supported_formats:
     - ".mp4"
@@ -48,3 +82,11 @@ logging:
   file: "outputs/logs/stroke_ai.log"
   max_bytes: 10485760
   backup_count: 5
+
+  datasets:
+  stroke_rehab_root: "C:/datasets/Stroke Rehabilitation Exercise Data Utilizing 3D Depth Sensors and IMU Sensors/Stroke Rehabilitation Exercise Data"
+  openpose:
+    C_Front_Away: "C:/datasets/C_Front_Away/JSON Files"
+    C_Sag_Left: "C:/datasets/C_Sag_Left/JSON Files"
+    C_Sag_Right: "C:/datasets/C_Sag_Right/JSON Files"
+    archive_root: "C:/datasets/archive/data_new"
