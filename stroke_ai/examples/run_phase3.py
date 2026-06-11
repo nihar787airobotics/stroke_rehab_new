@@ -7,23 +7,19 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from feature_engineering.feature_extractor import FeatureExtractor
+from feature_engineering.temporal_features import TemporalFeatures
 
-manifest_path = Path("data/processed/kinect")
-
-sample = next(manifest_path.rglob("keypoints.npz"))
-
-print("Loading:")
-print(sample)
+sample = next(
+    Path("data/processed/kinect").rglob("keypoints.npz")
+)
 
 data = FeatureExtractor.load_keypoints(sample)
 
 kp = data["keypoints"]
 
-print("\nShape:", kp.shape)
-print("Frames:", FeatureExtractor.sequence_length(kp))
-print("Joints:", FeatureExtractor.num_joints(kp))
-print("Coordinates:", FeatureExtractor.coordinate_dims(kp))
+features = TemporalFeatures.extract(kp)
 
-FeatureExtractor.validate_keypoints(kp)
+print("\nTemporal Features\n")
 
-print("\nFeatureExtractor working correctly")
+for k, v in features.items():
+    print(f"{k}: {v}")
