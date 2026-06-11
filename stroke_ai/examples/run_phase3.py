@@ -1,25 +1,26 @@
-import sys
-from pathlib import Path
+import numpy as np
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+class MotionFeatures:
 
-from feature_engineering.feature_extractor import FeatureExtractor
-from feature_engineering.temporal_features import TemporalFeatures
+    @staticmethod
+    def extract(keypoints):
+        """
+        keypoints shape:
+        (T, J, 3)
+        """
 
-sample = next(
-    Path("data/processed/kinect").rglob("keypoints.npz")
-)
+        velocity = np.diff(keypoints, axis=0)
 
-data = FeatureExtractor.load_keypoints(sample)
+        speed = np.linalg.norm(
+            velocity,
+            axis=2
+        )
 
-kp = data["keypoints"]
+        features = {
+            "mean_speed": float(np.mean(speed)),
+            "max_speed": float(np.max(speed)),
+            "std_speed": float(np.std(speed)),
+        }
 
-features = TemporalFeatures.extract(kp)
-
-print("\nTemporal Features\n")
-
-for k, v in features.items():
-    print(f"{k}: {v}")
+        return features
