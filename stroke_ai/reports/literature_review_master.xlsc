@@ -1,0 +1,449 @@
+Your project pipeline now becomes:
+
+Phase	Purpose	Reference Paper
+Phase 1	Kinect Skeleton Extraction	Kim et al. 2016
+Phase 2	Skeleton Processing	A-MAL 2019
+Phase 3	Motion + Angle + Symmetry Features	Otten et al. 2015
+Phase 4	Dataset Creation	Bai et al. 2024
+Phase 5A	Random Forest Baseline	Traditional ML papers
+Phase 5B	CNN-LSTM Baseline	A-MAL 2019
+Phase 5C	GhostNet + Attention	Zhou et al. China Paper
+Save this exactly in your literature review spreadsheet.
+
+# MASTER RESEARCH PAPER LIST (Chronological Order)
+
+---
+
+## 1. Fugl-Meyer Assessment (Clinical Foundation)
+
+**Title:**
+Fugl-Meyer Assessment of Sensorimotor Recovery After Stroke
+
+**Year:**
+1975
+
+**Why we use it**
+
+```text
+Ground truth clinical scale
+Stroke severity measurement
+Motor recovery scoring
+```
+
+**Used in**
+
+```text
+Entire project
+Labels
+Severity interpretation
+Clinical validation
+```
+
+Reference explaining FMA: [Understanding the Fugl-Meyer Assessment](https://www.neurolutions.com/after-stroke/understanding-the-fugl-meyer-assessment/?utm_source=chatgpt.com) ([Neurolutions][1])
+
+---
+
+# 2. Otten et al. (Feature Engineering Foundation)
+
+**Title:**
+A Framework to Automate Assessment of Upper-Limb Motor Function Impairment: A Feasibility Study
+
+**Authors:**
+Pieter Otten et al.
+
+**Year:**
+2015
+
+**Working Link**
+
+[MDPI Full Paper](https://www.mdpi.com/1424-8220/15/8/20097?utm_source=chatgpt.com)
+
+**What we copied**
+
+```text
+Joint angle extraction
+Range of Motion
+Kinect skeleton usage
+Upper limb assessment
+```
+
+**Used in**
+
+```text
+Phase 3
+Angle Features
+ROM Features
+Kinematic Features
+```
+
+The paper specifically states Kinect skeleton data can be used to derive assessment features such as joint angles. ([MDPI][2])
+
+---
+
+# 3. Kim et al. (Kinect + FMA)
+
+**Title**
+
+Upper Extremity Functional Evaluation by Fugl-Meyer Assessment Scoring Using Depth-Sensing Camera in Hemiplegic Stroke Patients
+
+**Authors**
+
+Won-Seok Kim et al.
+
+**Year**
+
+2016
+
+**Working Link**
+
+[PLOS Full Paper](https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0158640&utm_source=chatgpt.com)
+
+**What we copied**
+
+```text
+Velocity
+Movement Quality
+Jerk
+Kinematic Analysis
+Kinect-based FMA
+```
+
+**Used in**
+
+```text
+Phase 1
+Phase 3
+Motion Features
+```
+
+This paper validates Kinect-based FMA and uses movement-quality metrics including jerk. ([PLOS][3])
+
+---
+
+# 4. Lee et al. (Automated FMA)
+
+**Title**
+
+Automated Evaluation of Upper-Limb Motor Function Impairment Using Fugl-Meyer Assessment
+
+**Authors**
+
+Seunghee Lee, Yang-Soo Lee, Jonghyun Kim
+
+**Year**
+
+2018
+
+**Working Link**
+
+[PubMed Paper](https://pubmed.ncbi.nlm.nih.gov/28952944/?utm_source=chatgpt.com)
+
+**What we copied**
+
+```text
+Automated FMA
+Kinect Skeleton Acquisition
+Clinical Assessment Pipeline
+```
+
+**Used in**
+
+```text
+Phase 1
+Phase 2
+Phase 4
+Random Forest Baseline
+```
+
+The authors built an automated FMA system using Kinect v2. ([PubMed][4])
+
+---
+
+# 5. Skeleton Learning Paper
+
+**Title**
+
+Learning and Recognizing Human Action from Skeleton Movement with Deep Residual Neural Networks
+
+**Authors**
+
+Pham et al.
+
+**Year**
+
+2018
+
+**Working Link**
+
+[arXiv Paper](https://arxiv.org/abs/1803.07780?utm_source=chatgpt.com)
+
+**What we copied**
+
+```text
+Skeleton sequence representation
+Deep learning on skeleton data
+```
+
+**Used in**
+
+```text
+Phase 5B
+CNN-LSTM motivation
+Skeleton Deep Learning
+```
+
+([arXiv][5])
+
+---
+
+# 6. A-MAL
+
+**Title**
+
+A-MAL: Automatic Movement Assessment Learning from Properly Performed Movements in 3D Skeleton Videos
+
+**Authors**
+
+Tal Hakim, Ilan Shimshoni
+
+**Year**
+
+2019
+
+**Working Link**
+
+[A-MAL Paper](https://arxiv.org/abs/1907.10004?utm_source=chatgpt.com)
+
+**What we copied**
+
+```text
+Skeleton-based assessment
+Temporal modeling
+Movement quality evaluation
+```
+
+**Used in**
+
+```text
+Phase 2
+Phase 5B
+CNN-LSTM Baseline
+```
+
+This work focuses specifically on FMA-like rehabilitation movement assessment from skeleton sequences. ([arXiv][6])
+
+---
+
+# 7. Skeleton Assessment Survey
+
+**Title**
+
+A Comprehensive Review of Skeleton-based Movement Assessment Methods
+
+**Author**
+
+Tal Hakim
+
+**Year**
+
+2020
+
+**Working Link**
+
+[Review Paper](https://arxiv.org/abs/2007.10737?utm_source=chatgpt.com)
+
+**What we copied**
+
+```text
+Movement assessment taxonomy
+Research justification
+Comparison section
+```
+
+**Used in**
+
+```text
+Literature Review
+Related Work
+```
+
+([arXiv][7])
+
+---
+
+# 8. Kinematic Assessment Paper
+
+**Title**
+
+Kinematic Assessment to Measure Change in Impairment During Stroke Rehabilitation
+
+**Year**
+
+2021
+
+**Used For**
+
+```text
+Feature interpretation
+Clinical significance
+FMA correlation
+```
+
+(Useful for Results and Discussion section.)
+
+---
+
+# 9. Indian Research Paper #1
+
+**Title**
+
+Distal Upper Limb Targeted Therapy with Non-Immersive Virtual Reality
+
+**Indian Authors**
+
+D. Nath et al.
+
+**Year**
+
+2025
+
+**Used For**
+
+```text
+Indian rehabilitation comparison
+Upper limb recovery evaluation
+```
+
+Useful in discussion and comparison section.
+
+---
+
+# 10. Smart Rehabilitation Assessment
+
+**Title**
+
+Towards Stroke Patients' Upper-limb Automatic Motor Assessment Using Smartwatches
+
+**Year**
+
+2022
+
+**Working Link**
+
+[arXiv Paper](https://arxiv.org/abs/2212.05062?utm_source=chatgpt.com)
+
+**Used For**
+
+```text
+Automatic assessment pipelines
+Feature extraction comparison
+```
+
+([arXiv][8])
+
+---
+
+# 11. Modern Automated Assessment
+
+**Title**
+
+Automatic Rehabilitation Assessment Method of Upper Limb Motor Function
+
+**Authors**
+
+J. Bai et al.
+
+**Year**
+
+2024
+
+**Working Link**
+
+[Frontiers Paper](https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2024.1362495/full?utm_source=chatgpt.com)
+
+**What we copied**
+
+```text
+Automated rehabilitation pipeline
+Dataset preparation methodology
+Assessment framework
+```
+
+**Used in**
+
+```text
+Phase 4
+Dataset Preparation
+```
+
+([Frontiers][9])
+
+---
+
+# 12. CHINA GHOSTNET PAPER (MOST IMPORTANT)
+
+**Title**
+
+Portable Vision-Based Gait Assessment for Post-Stroke Rehabilitation Using an Attention-Based Lightweight CNN
+
+**Authors**
+
+Chengju Zhou, Daqin Feng, Shuyu Chen, Nianming Ban, Jiahui Pan
+
+**Country**
+
+China
+
+**Year**
+
+2023/2024
+
+**What we copied**
+
+```text
+GhostNet
+Attention Module
+Lightweight CNN
+Severity Classification
+```
+
+**Used in**
+
+```text
+Phase 5C
+GhostNet + Attention
+Final Proposed Model
+```
+
+**This is your primary deep-learning reference.**
+
+---
+
+# FINAL MAPPING TO YOUR IMPLEMENTATION
+
+| Your Phase                    | Research Paper                               |
+| ----------------------------- | -------------------------------------------- |
+| Clinical Foundation           | Fugl-Meyer 1975                              |
+| Phase 1 Skeleton Acquisition  | Kim 2016 + Lee 2018                          |
+| Phase 2 Skeleton Processing   | A-MAL 2019                                   |
+| Phase 3 Motion Features       | Kim 2016                                     |
+| Phase 3 Angle Features        | Otten 2015                                   |
+| Phase 3 Symmetry Features     | Otten 2015 + Rehabilitation Literature       |
+| Phase 4 Dataset Preparation   | Bai 2024                                     |
+| Phase 5A Random Forest        | Lee 2018                                     |
+| Phase 5B CNN-LSTM             | A-MAL 2019                                   |
+| Phase 5C GhostNet + Attention | Zhou et al. China Paper                      |
+| Results Discussion            | Indian Studies + Kinematic Assessment Papers |
+| Literature Review             | Skeleton Assessment Review 2020              |
+
+This is the citation chain I would use for an IEEE paper, conference paper, patent report, and final-year research documentation.
+
+[1]: https://www.neurolutions.com/after-stroke/understanding-the-fugl-meyer-assessment/?utm_source=chatgpt.com "Understanding the Fugl-Meyer Assessment"
+[2]: https://www.mdpi.com/1424-8220/15/8/20097?utm_source=chatgpt.com "A Framework to Automate Assessment of Upper-Limb ..."
+[3]: https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0158640&utm_source=chatgpt.com "Upper Extremity Functional Evaluation by Fugl-Meyer ..."
+[4]: https://pubmed.ncbi.nlm.nih.gov/28952944/?utm_source=chatgpt.com "Automated Evaluation of Upper-Limb Motor Function ..."
+[5]: https://arxiv.org/abs/1803.07780?utm_source=chatgpt.com "Learning and Recognizing Human Action from Skeleton Movement with Deep Residual Neural Networks"
+[6]: https://arxiv.org/abs/1907.10004?utm_source=chatgpt.com "A-MAL: Automatic Movement Assessment Learning from Properly Performed Movements in 3D Skeleton Videos"
+[7]: https://arxiv.org/abs/2007.10737?utm_source=chatgpt.com "A Comprehensive Review of Skeleton-based Movement Assessment Methods"
+[8]: https://arxiv.org/abs/2212.05062?utm_source=chatgpt.com "Towards Stroke Patients' Upper-limb Automatic Motor Assessment Using Smartwatches"
+[9]: https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2024.1362495/full?utm_source=chatgpt.com "Automatic rehabilitation assessment method of upper limb ..."
