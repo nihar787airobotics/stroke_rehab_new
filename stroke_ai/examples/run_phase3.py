@@ -1,3 +1,4 @@
+print("SCRIPT STARTED")
 import numpy as np
 
 
