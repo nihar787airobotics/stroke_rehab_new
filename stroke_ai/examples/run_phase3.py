@@ -8,23 +8,26 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from feature_engineering.feature_extractor import FeatureExtractor
 from feature_engineering.motion_features import MotionFeatures
+from feature_engineering.angle_features import AngleFeatures
 
 sample = next(
     Path("data/processed/kinect").rglob("keypoints.npz")
 )
 
-print("Loading:")
-print(sample)
-
 data = FeatureExtractor.load_keypoints(sample)
 
 kp = data["keypoints"]
 
-print("\nShape:", kp.shape)
+motion = MotionFeatures.extract(kp)
 
-features = MotionFeatures.extract(kp)
+angles = AngleFeatures.extract(kp)
 
-print("\nMotion Features\n")
+print("\n=== Motion Features ===\n")
 
-for k, v in features.items():
+for k, v in motion.items():
+    print(f"{k}: {v}")
+
+print("\n=== Angle Features ===\n")
+
+for k, v in angles.items():
     print(f"{k}: {v}")
