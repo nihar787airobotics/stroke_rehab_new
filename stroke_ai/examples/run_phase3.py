@@ -1,27 +1,30 @@
-print("SCRIPT STARTED")
-import numpy as np
+import sys
+from pathlib import Path
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-class MotionFeatures:
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
-    @staticmethod
-    def extract(keypoints):
-        """
-        keypoints shape:
-        (T, J, 3)
-        """
+from feature_engineering.feature_extractor import FeatureExtractor
+from feature_engineering.motion_features import MotionFeatures
 
-        velocity = np.diff(keypoints, axis=0)
+sample = next(
+    Path("data/processed/kinect").rglob("keypoints.npz")
+)
 
-        speed = np.linalg.norm(
-            velocity,
-            axis=2
-        )
+print("Loading:")
+print(sample)
 
-        features = {
-            "mean_speed": float(np.mean(speed)),
-            "max_speed": float(np.max(speed)),
-            "std_speed": float(np.std(speed)),
-        }
+data = FeatureExtractor.load_keypoints(sample)
 
-        return features
+kp = data["keypoints"]
+
+print("\nShape:", kp.shape)
+
+features = MotionFeatures.extract(kp)
+
+print("\nMotion Features\n")
+
+for k, v in features.items():
+    print(f"{k}: {v}")
